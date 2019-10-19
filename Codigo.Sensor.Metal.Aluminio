@@ -1,15 +1,16 @@
 #define capPin A5
 #define buz 9
 #define pulsePin A4
+#define weight A1
 
 #define led 10
 
-long sumExpect=0; //running sum of 64 sums 
-long ignor=0;   //number of ignored sums
-long diff=0;        //difference between sum and avgsum
+long sumExpect=0;
+long ignor=0;  
+long diff=0;     
 long pTime=0;
 long buzPeriod=0; 
-
+float avgWeight=0;
 void setup() 
 {
   Serial.begin(9600);
@@ -19,6 +20,8 @@ void setup()
   pinMode(buz, OUTPUT);
   digitalWrite(buz, LOW);
   pinMode(led, OUTPUT);
+  pinMode(weight,INPUT);
+  
 }
 
 void loop() 
@@ -28,15 +31,14 @@ void loop()
   long unsigned int sum=0;
   for (int i=0; i<256; i++)
   {
-    //reset the capacitor
     pinMode(capPin,OUTPUT);
     digitalWrite(capPin,LOW);
     delayMicroseconds(20);
     pinMode(capPin,INPUT);
     applyPulses();
     
-    //read the charge of capacitor
-    int val = analogRead(capPin); //takes 13x8=104 microseconds
+    //Lê a carga do capacitor
+    int val = analogRead(capPin);
     minval = min(val,minval);
     maxval = max(val,maxval);
     sum+=val;
@@ -79,12 +81,18 @@ void loop()
     }
   }
 
-  //subtract minimum and maximum value to remove spikes
+  //subtrai os valores mínimos e máximos para remover os picos
   sum-=minval; 
   sum-=maxval;
   
+  if (weight!=0); //Necessita de ser conhecido o sensor para saber o fator de conversão
+  {
+    delay(3000);
+    avgWeight = weight;
+  }
+  
   if (sumExpect==0) 
-  sumExpect=sum<<6; //set sumExpect to expected value
+  sumExpect=sum<<6; //põe sumExpect para o valor esperado
   long int avgsum=(sumExpect+32)>>6; 
   diff=sum-avgsum;
   if (abs(diff)<avgsum>>10)
@@ -109,9 +117,9 @@ void applyPulses()
 {
     for (int i=0;i<3;i++) 
     {
-      digitalWrite(pulsePin,HIGH); //take 3.5 uS
+      digitalWrite(pulsePin,HIGH); //demora 3.5 uS
       delayMicroseconds(3);
-      digitalWrite(pulsePin,LOW);  //take 3.5 uS
+      digitalWrite(pulsePin,LOW);  //demora 3.5 uS
       delayMicroseconds(3);
     }
 }
