@@ -1,15 +1,23 @@
-int pinoLed = 11; 
-int pinoSensor = 3;
-int estadoSensor; 
-void setup(){
-  pinMode(pinoSensor, INPUT); 
-  pinMode(pinoLed, OUTPUT); 
-}
+int pinLed = 11; 
+int pinSensor = 3;
+int stateSensor; 
+float weight = 0;
+void setup()
+{
+  pinMode(pinSensor, INPUT); 
+  pinMode(pinLed, OUTPUT); 
 
+}
 void loop(){
-  if (analogRead(pinoSensor) >= 150){ //esse valor é determinado com testes
-      estadoSensor = digitalRead(pinoLed); 
-      digitalWrite(pinoLed, !estadoSensor); 
+  if (analogRead(pinSensor) >= 150) //esse valor é determinado com testes
+  {   
+      stateSensor = digitalRead(pinLed);
+      digitalWrite(pinLed, !stateSensor);
       delay(500);
+  }
+  if (weight > 0)
+  {
+    delay(2000);
+    avgWeight = weight;
   }
 }
