@@ -1,0 +1,15 @@
+int pinoLed = 11; 
+int pinoSensor = 3;
+int estadoSensor; 
+void setup(){
+  pinMode(pinoSensor, INPUT); 
+  pinMode(pinoLed, OUTPUT); 
+}
+
+void loop(){
+  if (analogRead(pinoSensor) >= 150){ //esse valor é determinado com testes
+      estadoSensor = digitalRead(pinoLed); 
+      digitalWrite(pinoLed, !estadoSensor); 
+      delay(500);
+  }
+}
