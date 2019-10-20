@@ -1,0 +1,255 @@
+body {
+	background-color: #FFFFFF;
+    font-size: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    padding: 50px 70px;
+    font-weight: 500;
+}
+
+input[type=text], 
+input[type=password] {
+   border: none;
+   border-bottom: 1px solid #383838;
+   outline: 0 !important;
+   font-size: 60px;
+   
+}
+
+.hello p {
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	width: 100%;
+}
+
+.btn.btn-primary {
+	background-color: green;
+    width: 80%;
+    height: 120px;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 2px 16px 0px lightgreen;
+    font-size: 60px;
+    align-self: center;
+    margin: 100px auto;
+    cursor: pointer;
+}
+.btn:active, 
+.btn:visited, 
+.btn:focus {
+	background-color: #0b610b !important; 
+
+}
+
+form {
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
+}
+
+small {
+	font-size: 36px;
+    color: #777;
+    margin-top: -60px;
+}
+
+.main {
+	width: 100%;
+}
+
+.congrats {
+	margin-top: 448px;
+}
+
+.cabeçalho {
+	background-color: #28a745;
+	border-bottom-left-radius: 30px; 
+	border-bottom-right-radius: 30px; 
+	width: 100%;
+	height:50vh;
+
+}
+
+.nome {
+	color: white;
+	text-align: center;
+	margin-top: 5%;
+
+}
+
+.dados {
+	color: white;
+	text-align: 25px;
+	margin-top: 5%;
+	padding: 0 175px;
+}
+
+.pontos {
+	color: white;
+	text-align: center;
+	margin-top: 5%;
+
+}
+
+.user {
+	padding: 0;
+	justify-content: flex-start;
+}
+
+.userimg img {
+	border-radius: 100%;
+    height: 25vh;
+    align-content: center;
+    margin-left: 28%;
+    border: 10px solid #f8f9faad !important;
+}
+
+
+.eventos img {
+    border-radius: 4px 4px 0 0;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100% !important;
+    
+}
+
+.ongoing {
+	color: #495057;
+    text-align: center;
+    margin-top: 12%;
+}
+
+.subtela {
+    background-color: #28a745;
+    width: 250px;
+    height: 275px;
+    border-radius: 3%;
+}
+
+.alinhamento {
+	display:flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #28a745ff;
+}
+
+.RIR {
+	margin-top: 1px;
+	color: #FFFFFFFF;
+}
+
+.pot{
+	background-color: #28a745;
+	width: 100%;
+	height:70vh;
+}
+
+.local p {
+	color: white;
+	z-index: 1;
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.rodapé {
+	background-color: #28a745;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    width: 100%;
+    height: 67%;
+    margin-top: -236px;
+}
+
+.evento p {
+	color: white;
+	text-align: center;
+}
+
+.data p {
+    margin-left: 30px;
+    color: white;
+    text-align: left;
+    font-size: 40px;
+}
+
+.local p {
+    color: white;
+    text-align: left;
+    font-size: 40px;
+    margin-left: 30px;
+}
+}
+
+.pontuação p {
+	color: white;
+	text-align: center;
+	font-size: 80px;
+}
+
+.metal p {
+	margin-left: 30px;
+	color: white;
+}
+
+.papel p {
+	margin-left: 30px;
+	color: white;
+}
+
+.plástico p {
+	margin-left: 30px;
+	color: white;
+}
+
+.buttom {
+    z-index: 1;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    width: 400px;
+    height: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-left: 250px;
+    margin-top: 100px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
